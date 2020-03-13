@@ -1,4 +1,5 @@
-5
+8
+
 size 1
 add 13 ala
 print
@@ -6,16 +7,22 @@ print
 delete 13 ala
 print
 stop
+
 size 0
 print
 stop
+
+stop
+
 size 1
 print
 stop
+
 size 10
 add 1312314414 tobynicNIEDAlo
 print
 stop
+
 size 3
 add 13 ala
 print
@@ -25,5 +32,24 @@ delete 13
 add 4 basia
 add 7 kasia
 delete 4
+print
+stop
+
+size 4
+add 4 ala1
+add 8 ala2 
+add 12 ala3
+add 16 ala4
+print
+delete 8 
+print 
+stop
+
+size 10
+add 13 ala
+print
+add 23 ola
+print
+delete 13
 print
 stop

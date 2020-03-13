@@ -181,7 +181,11 @@ public:
 	void fillTheGaps(long p_key, int miejsceUsuniecia)
 	{
 		int dokatSprawdzac = HashFunction(p_key);
+
 		int i = miejsceUsuniecia + 1;
+		if (i == size)
+			i = 0;
+
 		bool sprawdzonoTablice = false;
 
 		if (i == dokatSprawdzac)
@@ -190,8 +194,8 @@ public:
 		while(sprawdzonoTablice == false)
 		{
 			
-			if (i != size)
-			{
+			//if (i != size)
+			//{
 				if (HashFunction(tab[i].key) == HashFunction(p_key))
 				{
 					tab[miejsceUsuniecia].chain = tab[i].chain;
@@ -201,15 +205,16 @@ public:
 					tab[i].key = 0;
 					
 					miejsceUsuniecia = i;
+					i++;
 				}
 				else
 				{
 					i++;
 				}
-			}
-			else
-			{
-				i = 0;
+			//}
+			//else
+			//{
+				/*i = 0;
 				if (HashFunction(tab[i].key) == HashFunction(p_key))
 				{
 					tab[miejsceUsuniecia].chain = tab[i].chain;
@@ -223,8 +228,11 @@ public:
 				else
 				{
 					i++;
-				}
-			}
+				}*/
+			//}
+
+			if (i == size)
+				i = 0;
 
 			if (i == dokatSprawdzac)
 				sprawdzonoTablice = true;
