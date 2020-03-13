@@ -1,0 +1,29 @@
+5
+size 1
+add 13 ala
+print
+print
+delete 13 ala
+print
+stop
+size 0
+print
+stop
+size 1
+print
+stop
+size 10
+add 1312314414 tobynicNIEDAlo
+print
+stop
+size 3
+add 13 ala
+print
+add 22 ola
+print
+delete 13
+add 4 basia
+add 7 kasia
+delete 4
+print
+stop

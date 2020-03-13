@@ -1,13 +1,17 @@
 #include<iostream>
 #include<string>
+#include<fstream>
 
 using std::string;
 using std::cout;
 using std::endl;
 
+class Hashtable;
+
 class Hashobj
 {
-public:
+	friend class Hashtable;
+private:
 	long key;
 	string chain;
 
@@ -27,26 +31,31 @@ public:
 		//EMPTY
 	}
 
+public:
+	const long getKey() const
+	{
+		return key;
+	}
+
+	const string& getChain() const
+	{
+		return chain;
+	}
 
 
 };
 
 class Hashtable
 {
-public:
+private:
 	Hashobj* tab;
 	int size;
 
+public:
 	Hashtable()
 	{
 		size = 0;
 		tab = nullptr;
-	}
-
-	Hashtable(int size_p)
-	{
-		this->size = size_p;
-		tab = new Hashobj[size_p];
 	}
 
 	~Hashtable()
@@ -54,9 +63,27 @@ public:
 		delete[] tab;
 	}
 
+
 	int HashFunction(long key_p)
 	{
 		return key_p % size;
+	}
+
+	const int getSize() const
+	{
+		return size;
+	}
+
+	const Hashobj& getTab(int index) const
+	{
+		return tab[index];
+	}
+
+	void setSize(int size_p)
+	{
+		this->size = size_p;
+		delete[] tab;
+		tab = new Hashobj[size_p];
 	}
 
 	void addToTable(string chain, long key)
@@ -109,7 +136,7 @@ public:
 		
 	}
 
-	void deleteFromTable(int p_key)
+	void deleteFromTable(long p_key)
 	{
 		int i = HashFunction(p_key);
 		bool znaleziono = false;
@@ -151,7 +178,7 @@ public:
 		
 	}
 
-	void fillTheGaps(int p_key, int miejsceUsuniecia)
+	void fillTheGaps(long p_key, int miejsceUsuniecia)
 	{
 		int dokatSprawdzac = HashFunction(p_key);
 		int i = miejsceUsuniecia + 1;
@@ -211,20 +238,68 @@ public:
 
 int main()
 {
-	Hashtable h1(3);
+	std::fstream plik;
+	plik.open("test.txt");
 
-	h1.addToTable("ala", 13);
-	h1.addToTable("ola", 22);
-	h1.addToTable("basia", 4);
+	int liczbaPrzypadkow;
+	plik >> liczbaPrzypadkow;
 
-	h1.deleteFromTable(4);
+	bool zakonczPrzypadek = false;
+	std::string polecenie;
+	long zmiennaKeySize;
+	std::string zmiennaCiag;
 
-	
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < liczbaPrzypadkow; i++)
 	{
-		cout << "index: " << i << " lancuch: " << h1.tab[i].chain << endl;
-	}
+		Hashtable* h = new Hashtable();
+		zakonczPrzypadek = false;
 
+		while (!zakonczPrzypadek)
+		{
+			plik >> polecenie;
+			
+
+			if (polecenie == "size")
+			{
+				plik >> zmiennaKeySize;
+				h->setSize(zmiennaKeySize);
+				
+			}
+			else if (polecenie == "add")
+			{
+				plik >> zmiennaKeySize;
+				plik >> zmiennaCiag;
+				h->addToTable(zmiennaCiag, zmiennaKeySize);
+				
+			}
+			else if (polecenie == "delete")
+			{
+				plik >> zmiennaKeySize;
+				h->deleteFromTable(zmiennaKeySize);
+				
+			}
+			else if (polecenie == "print")
+			{
+				for (int i = 0; i < h->getSize(); i++)
+				{
+					if (h->getTab(i).getKey() != 0)
+					{
+						cout << i << " " << h->getTab(i).getKey() << " " << h->getTab(i).getChain() << endl;
+					}
+				}
+				cout << endl;
+				
+			}
+			else if (polecenie == "stop")
+			{
+				zakonczPrzypadek = true;
+				
+			}
+		}
+
+		delete h;
+	}
+	
 	return 0;
 }
 
