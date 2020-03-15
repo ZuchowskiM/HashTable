@@ -1,0 +1,21 @@
+2
+size 4
+add 1 jeden
+add 2 dwa
+add 6 dwa
+add 5 jeden
+print
+delete 1
+print
+stop
+
+size 5
+add 1 jeden
+add 2 dwa
+add 3 trzy
+add 7 dwa
+add 5 zero
+print
+delete 3
+print
+stop

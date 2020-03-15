@@ -1,0 +1,27 @@
+0 73 jula
+1 10 jolo
+3 33 ala
+4 13 ela
+5 23 ula
+6 16 ilona
+7 25 iza
+8 38 ola
+9 18 paula
+
+1 73 jula
+3 33 ala
+4 13 ela
+5 23 ula
+6 16 ilona
+7 25 iza
+8 38 ola
+9 18 paula
+
+3 33 ala
+4 23 ula
+5 25 iza
+6 16 ilona
+7 73 jula
+8 38 ola
+9 18 paula
+

@@ -1,0 +1,20 @@
+1
+size 10
+add 16 ela
+add 34 ula
+add 26 ilona
+add 19 iwo
+add 29 paula
+add 10 ola
+add 39 ala
+add 18 olo
+print
+delete 19
+print
+add 24 yolo
+add 19 polo
+print
+add 28 elo
+delete 18
+print
+stop

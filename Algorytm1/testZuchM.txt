@@ -1,4 +1,4 @@
-8
+9
 
 size 1
 add 13 ala
@@ -15,6 +15,10 @@ stop
 stop
 
 size 1
+print
+stop
+
+size 3
 print
 stop
 

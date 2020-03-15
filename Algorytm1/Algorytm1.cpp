@@ -51,6 +51,11 @@ private:
 	Hashobj* tab;
 	int size;
 
+	int HashFunction(long key_p)
+	{
+		return key_p % size;
+	}
+
 public:
 	Hashtable()
 	{
@@ -63,10 +68,97 @@ public:
 		delete[] tab;
 	}
 
-
-	int HashFunction(long key_p)
+	/*void fillTheGaps2(long p_key, int miejsceUsuniecia)
 	{
-		return key_p % size;
+		int dokatSprawdzac = HashFunction(p_key);
+
+		int i = miejsceUsuniecia + 1;
+		if (i == size)
+			i = 0;
+
+		bool sprawdzonoTablice = false;
+
+		if (i == dokatSprawdzac)
+			sprawdzonoTablice = true;
+
+		while (sprawdzonoTablice == false)
+		{
+
+			if (HashFunction(tab[i].key) == HashFunction(p_key))
+			{
+				tab[miejsceUsuniecia].chain = tab[i].chain;
+				tab[miejsceUsuniecia].key = tab[i].key;
+
+				tab[i].chain.clear();
+				tab[i].key = 0;
+
+				miejsceUsuniecia = i;
+				i++;
+			}
+			else
+			{
+				i++;
+			}
+
+
+			
+
+			if (i == size)
+				i = 0;
+
+			if (i == dokatSprawdzac)
+				sprawdzonoTablice = true;
+
+		}
+
+
+	}*/
+	
+	void fillTheGaps(int miejsceUsuniecia)
+	{
+		int dokatSprawdzac = miejsceUsuniecia;
+
+		int i = miejsceUsuniecia + 1;
+		if (i == size)
+			i = 0;
+
+		bool sprawdzonoTablice = false;
+
+		if (i == dokatSprawdzac)
+			sprawdzonoTablice = true;
+
+		int gdzieJestMojeMiejsce;
+
+		while (!sprawdzonoTablice)
+		{
+			gdzieJestMojeMiejsce = HashFunction(tab[i].key);
+
+			while (gdzieJestMojeMiejsce != i)
+			{
+				if (tab[gdzieJestMojeMiejsce].key == 0)
+				{
+					tab[gdzieJestMojeMiejsce].key = tab[i].key;
+					tab[gdzieJestMojeMiejsce].chain = tab[i].chain;
+
+					tab[i].key = 0;
+					tab[i].chain = "";
+				}
+
+				gdzieJestMojeMiejsce++;
+
+				if (gdzieJestMojeMiejsce == size)
+					gdzieJestMojeMiejsce = 0;
+			}
+
+			i++;
+
+			if (i == size)
+				i = 0;
+
+			if (i == dokatSprawdzac)
+				sprawdzonoTablice = true;
+		}
+
 	}
 
 	const int getSize() const
@@ -173,81 +265,18 @@ public:
 			}
 		}
 
-		fillTheGaps(p_key, i);
+		fillTheGaps(i);
 		
 		
 	}
 
-	void fillTheGaps(long p_key, int miejsceUsuniecia)
-	{
-		int dokatSprawdzac = HashFunction(p_key);
-
-		int i = miejsceUsuniecia + 1;
-		if (i == size)
-			i = 0;
-
-		bool sprawdzonoTablice = false;
-
-		if (i == dokatSprawdzac)
-			sprawdzonoTablice = true;
-
-		while(sprawdzonoTablice == false)
-		{
-			
-			//if (i != size)
-			//{
-				if (HashFunction(tab[i].key) == HashFunction(p_key))
-				{
-					tab[miejsceUsuniecia].chain = tab[i].chain;
-					tab[miejsceUsuniecia].key = tab[i].key;
-
-					tab[i].chain.clear();
-					tab[i].key = 0;
-					
-					miejsceUsuniecia = i;
-					i++;
-				}
-				else
-				{
-					i++;
-				}
-			//}
-			//else
-			//{
-				/*i = 0;
-				if (HashFunction(tab[i].key) == HashFunction(p_key))
-				{
-					tab[miejsceUsuniecia].chain = tab[i].chain;
-					tab[miejsceUsuniecia].key = tab[i].key;
-
-					tab[i].chain.clear();
-					tab[i].key = 0;
-
-					miejsceUsuniecia = i;
-				}
-				else
-				{
-					i++;
-				}*/
-			//}
-
-			if (i == size)
-				i = 0;
-
-			if (i == dokatSprawdzac)
-				sprawdzonoTablice = true;
-			
-		}
-
-		
-	}
-
+	
 };
 
 int main()
 {
 	std::fstream plik;
-	plik.open("test.txt");
+	plik.open("testForPauli.txt");
 
 	int liczbaPrzypadkow;
 	plik >> liczbaPrzypadkow;
@@ -308,6 +337,7 @@ int main()
 		delete h;
 	}
 	
+	plik.close();
 	return 0;
 }
 

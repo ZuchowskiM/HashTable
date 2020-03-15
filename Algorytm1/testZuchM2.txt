@@ -1,0 +1,34 @@
+3
+size 7
+add 8 jeden1
+add 9 dwa1
+add 15 jeden2
+add 10 trzy1
+add 12 piec1
+add 13 szesc1
+add 19 piec2
+print
+delete 8
+delete 12
+print
+stop
+
+size 4
+add 1 jeden
+add 2 dwa
+add 6 dwa
+add 5 jeden
+print
+delete 1
+print
+stop
+
+size 4
+add 1 jeden
+add 2 dwa
+add 6 dwa
+add 5 jeden
+print
+delete 6
+print
+stop

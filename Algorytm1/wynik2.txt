@@ -1,0 +1,37 @@
+0 29 paula
+1 10 ola
+2 39 ala
+4 34 ula
+6 16 ela
+7 26 ilona
+8 18 olo
+9 19 iwo
+
+0 10 ola
+1 39 ala
+4 34 ula
+6 16 ela
+7 26 ilona
+8 18 olo
+9 29 paula
+
+0 10 ola
+1 39 ala
+2 19 polo
+4 34 ula
+5 24 yolo
+6 16 ela
+7 26 ilona
+8 18 olo
+9 29 paula
+
+0 10 ola
+1 39 ala
+2 19 polo
+4 34 ula
+5 24 yolo
+6 16 ela
+7 26 ilona
+8 28 elo
+9 29 paula
+

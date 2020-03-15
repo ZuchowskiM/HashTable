@@ -1,0 +1,20 @@
+0 5 jeden
+1 1 jeden
+2 2 dwa
+3 6 dwa
+
+1 5 jeden
+2 2 dwa
+3 6 dwa
+
+0 5 zero
+1 1 jeden
+2 2 dwa
+3 3 trzy
+4 7 dwa
+
+0 5 zero
+1 1 jeden
+2 2 dwa
+3 7 dwa
+

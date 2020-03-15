@@ -1,0 +1,17 @@
+1
+size 10
+add 33 ala
+add 13 ela
+add 23 ula
+add 16 ilona
+add 25 iza
+add 38 ola
+add 18 paula
+add 73 jula
+add 10 jolo
+print
+delete 10
+print
+delete 13
+print
+stop

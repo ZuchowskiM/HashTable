@@ -1,0 +1,13 @@
+1
+size 10
+add 15 kasia
+add 16 basia
+add 25 kasia
+add 35 wiola
+add 45 ania
+add 75 aneta
+add 65 agata
+print
+delete 15
+print
+stop
