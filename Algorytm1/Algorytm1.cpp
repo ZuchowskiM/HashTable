@@ -1,6 +1,15 @@
+//////////////////////////////
+// 
+// Autor: Micha³ ¯uchowski
+// Nazwa: Tablica mieszaj¹ca
+// Data ost. modyfikacji:
+// 17.03.2020r.
+//
+//////////////////////////////
+
+
 #include<iostream>
 #include<string>
-#include<fstream>
 
 using std::string;
 using std::cout;
@@ -32,7 +41,7 @@ private:
 	}
 
 public:
-	const long getKey() const
+	long getKey() const
 	{
 		return key;
 	}
@@ -161,7 +170,7 @@ public:
 
 	}
 
-	const int getSize() const
+	int getSize() const
 	{
 		return size;
 	}
@@ -275,11 +284,9 @@ public:
 
 int main()
 {
-	std::fstream plik;
-	plik.open("testForPauli.txt");
-
+	
 	int liczbaPrzypadkow;
-	plik >> liczbaPrzypadkow;
+	std::cin >> liczbaPrzypadkow;
 
 	bool zakonczPrzypadek = false;
 	std::string polecenie;
@@ -293,25 +300,25 @@ int main()
 
 		while (!zakonczPrzypadek)
 		{
-			plik >> polecenie;
+			std::cin >> polecenie;
 			
 
 			if (polecenie == "size")
 			{
-				plik >> zmiennaKeySize;
+				std::cin >> zmiennaKeySize;
 				h->setSize(zmiennaKeySize);
 				
 			}
 			else if (polecenie == "add")
 			{
-				plik >> zmiennaKeySize;
-				plik >> zmiennaCiag;
+				std::cin >> zmiennaKeySize;
+				std::cin >> zmiennaCiag;
 				h->addToTable(zmiennaCiag, zmiennaKeySize);
 				
 			}
 			else if (polecenie == "delete")
 			{
-				plik >> zmiennaKeySize;
+				std::cin >> zmiennaKeySize;
 				h->deleteFromTable(zmiennaKeySize);
 				
 			}
@@ -337,7 +344,6 @@ int main()
 		delete h;
 	}
 	
-	plik.close();
 	return 0;
 }
 
