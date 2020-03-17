@@ -77,52 +77,6 @@ public:
 		delete[] tab;
 	}
 
-	/*void fillTheGaps2(long p_key, int miejsceUsuniecia)
-	{
-		int dokatSprawdzac = HashFunction(p_key);
-
-		int i = miejsceUsuniecia + 1;
-		if (i == size)
-			i = 0;
-
-		bool sprawdzonoTablice = false;
-
-		if (i == dokatSprawdzac)
-			sprawdzonoTablice = true;
-
-		while (sprawdzonoTablice == false)
-		{
-
-			if (HashFunction(tab[i].key) == HashFunction(p_key))
-			{
-				tab[miejsceUsuniecia].chain = tab[i].chain;
-				tab[miejsceUsuniecia].key = tab[i].key;
-
-				tab[i].chain.clear();
-				tab[i].key = 0;
-
-				miejsceUsuniecia = i;
-				i++;
-			}
-			else
-			{
-				i++;
-			}
-
-
-			
-
-			if (i == size)
-				i = 0;
-
-			if (i == dokatSprawdzac)
-				sprawdzonoTablice = true;
-
-		}
-
-
-	}*/
-	
 	void fillTheGaps(int miejsceUsuniecia)
 	{
 		int dokatSprawdzac = miejsceUsuniecia;
